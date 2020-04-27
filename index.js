@@ -1,8 +1,8 @@
 'use strict';
 // Steps to add edit title of item functionality:
-//  1 Add 'show Item retitle box' property (boolean) to store object
-//  2 Add 'Retitle Items check box' to index.html
-//  3 Create function that toggles 'show item retitle box' boolean property
+//  y 1 Add 'show Item retitle box' property (boolean) to store object
+//  y 2 Add 'Retitle Items check box' to index.html
+//  y 3 Create function that toggles 'show item retitle box' boolean property
 //  4 Create alternate html function that generates retitle item elements
 //  5 Create event handler that listens for retitle box click and renders all itme elemmens with alternate/retitle html
 //  6 Create event handler that listens for saves and changes name property of save button, and renders
@@ -14,7 +14,8 @@ const store = {
     { id: cuid(), name: 'milk', checked: true },
     { id: cuid(), name: 'bread', checked: false }
   ],
-  hideCheckedItems: false
+  hideCheckedItems: false,
+  retitleModeOn: false
 };
 
 const generateItemElement = function (item) {
@@ -25,6 +26,8 @@ const generateItemElement = function (item) {
     `;
   }
 // need to add button to edit/change title to element
+
+  else {}
   return `
     <li class='js-item-element' data-item-id='${item.id}'>
       ${itemTitle}
@@ -141,6 +144,10 @@ const handleDeleteItemClicked = function () {
  */
 const toggleCheckedItemsFilter = function () {
   store.hideCheckedItems = !store.hideCheckedItems;
+};
+
+const toggleRetitleMode = function () {
+  store.retitleModeOn = !store.retitleModeOn;
 };
 
 /**
