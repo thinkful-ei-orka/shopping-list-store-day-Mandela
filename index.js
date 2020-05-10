@@ -19,6 +19,7 @@ const store = {
 
 const generateItemElement = function (item) {
   let itemTitle = `<span class='shopping-item shopping-item__checked'>${item.name}</span>`;
+  const itemName = `${item.name}`
   if (!item.checked) {
     itemTitle = `
      <span class='shopping-item'>${item.name}</span>
@@ -29,7 +30,7 @@ const generateItemElement = function (item) {
   else {}
   return `
     <li class='js-item-element' data-item-id='${item.id}'>
-    ${item.inEdit? `<input type="text" name="shopping-list-title-change" class="js-shopping-list-title-change" placeholder="${item.name}">`: `${itemTitle}`}
+    ${item.inEdit? `<input type="text" name="shopping-list-title-change" class="js-shopping-list-title-change"`: `${itemTitle}`}
       <div class='shopping-item-controls'>
         <button class='shopping-item-toggle js-item-toggle'>
           <span class='button-label'>check</span>
